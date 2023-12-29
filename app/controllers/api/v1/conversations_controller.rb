@@ -1,5 +1,5 @@
 class Api::V1::ConversationsController < ApplicationController
-  before_action :set_conversation, only: %i[ show update destroy ]
+  before_action :set_conversation, only: %i[show update destroy]
 
   # GET /conversations
   def index
@@ -39,13 +39,14 @@ class Api::V1::ConversationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_conversation
-      @conversation = Conversation.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def conversation_params
-      params.require(:conversation).permit(:user_id, :shared)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_conversation
+    @conversation = Conversation.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def conversation_params
+    params.require(:conversation).permit(:user_id, :shared)
+  end
 end
