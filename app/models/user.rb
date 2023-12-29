@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :validatable, :jwt_authenticatable, jwt_revocation_strategy: self
 
   has_many :messages, foreign_key: 'user_id', dependent: :destroy
+  has_many :conversations, foreign_key: 'user_id', dependent: :destroy
 end
