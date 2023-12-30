@@ -12,8 +12,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users do
-        resources :messages
-        get 'random_text', to: 'messages#random_text', on: :member
+        resources :conversations do
+          resources :messages
+          get 'random_text', to: 'messages#random_text', on: :member
+        end
       end
     end
   end
