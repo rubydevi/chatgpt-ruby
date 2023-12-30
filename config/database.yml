@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: chatgpt_ruby_production
-  username: chatgpt_ruby
-  password: <%= ENV["CHATGPT_RUBY_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
