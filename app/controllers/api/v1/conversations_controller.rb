@@ -1,9 +1,10 @@
 class Api::V1::ConversationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_conversation, only: %i[show update destroy]
 
   # GET /conversations
   def index
-    @conversations = Conversation.all
+    @conversations = Conversation.includes(:messages).all
 
     render json: @conversations
   end
@@ -18,7 +19,7 @@ class Api::V1::ConversationsController < ApplicationController
     @conversation = Conversation.new(conversation_params)
 
     if @conversation.save
-      render json: @conversation, status: :created, location: @conversation
+      render json: @conversation, status: :created
     else
       render json: @conversation.errors, status: :unprocessable_entity
     end
