@@ -40,8 +40,10 @@ gem 'bootsnap', require: false
 gem 'devise'
 gem 'devise-jwt'
 gem 'jsonapi-serializer'
+gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
 gem 'rack-cors'
 
 group :development, :test do
